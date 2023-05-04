@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bonc.springboot.mapper.TSysUserMapper">
+
+    <resultMap id="BaseResultMap" type="com.bonc.springboot.entity.TSysUser">
+            <id property="id" column="ID" jdbcType="DECIMAL"/>
+            <result property="userName" column="USER_NAME" jdbcType="VARCHAR"/>
+            <result property="password" column="PASSWORD" jdbcType="VARCHAR"/>
+            <result property="nickName" column="NICK_NAME" jdbcType="VARCHAR"/>
+            <result property="status" column="STATUS" jdbcType="VARCHAR"/>
+            <result property="email" column="EMAIL" jdbcType="VARCHAR"/>
+            <result property="phonenumber" column="PHONENUMBER" jdbcType="VARCHAR"/>
+            <result property="sex" column="SEX" jdbcType="VARCHAR"/>
+            <result property="avatar" column="AVATAR" jdbcType="VARCHAR"/>
+            <result property="userType" column="USER_TYPE" jdbcType="VARCHAR"/>
+            <result property="createBy" column="CREATE_BY" jdbcType="DECIMAL"/>
+            <result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="UPDATE_BY" jdbcType="DECIMAL"/>
+            <result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP"/>
+            <result property="delFlag" column="DEL_FLAG" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ID,USER_NAME,PASSWORD,
+        NICK_NAME,STATUS,EMAIL,
+        PHONENUMBER,SEX,AVATAR,
+        USER_TYPE,CREATE_BY,CREATE_TIME,
+        UPDATE_BY,UPDATE_TIME,DEL_FLAG
+    </sql>
+    <select id="selectOneById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from T_SYS_USER
+        where
+        ID = #{id,jdbcType=NUMERIC}
+    </select>
+    <select id="selectOneByUserName" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from T_SYS_USER
+        where
+        USER_NAME = #{userName,jdbcType=VARCHAR}
+    </select>
+    <update id="updateSelective">
+        update T_SYS_USER
+        <set>
+            <if test="userName != null">USER_NAME=#{userName,jdbcType=VARCHAR},</if>
+            <if test="password != null">PASSWORD=#{password,jdbcType=VARCHAR},</if>
+            <if test="nickName != null">NICK_NAME=#{nickName,jdbcType=VARCHAR},</if>
+            <if test="status != null">STATUS=#{status,jdbcType=VARCHAR},</if>
+            <if test="email != null">EMAIL=#{email,jdbcType=VARCHAR},</if>
+            <if test="phonenumber != null">PHONENUMBER=#{phonenumber,jdbcType=VARCHAR},</if>
+            <if test="sex != null">SEX=#{sex,jdbcType=VARCHAR},</if>
+            <if test="avatar != null">AVATAR=#{avatar,jdbcType=VARCHAR},</if>
+            <if test="userType != null">USER_TYPE=#{userType,jdbcType=VARCHAR},</if>
+            <if test="createBy != null">CREATE_BY=#{createBy,jdbcType=NUMERIC},</if>
+            <if test="createTime != null">CREATE_TIME=#{createTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateBy != null">UPDATE_BY=#{updateBy,jdbcType=NUMERIC},</if>
+            <if test="updateTime != null">UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP},</if>
+            <if test="delFlag != null">DEL_FLAG=#{delFlag,jdbcType=VARCHAR},</if>
+        </set>
+        where id = #{id,jdbcType=NUMERIC}
+    </update>
+</mapper>
