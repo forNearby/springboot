@@ -49,12 +49,6 @@
             <version>12.2.0.1</version>
         </dependency>
 
-        <!--mysql驱动-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-
         <!--文件上传插件-->
         <!--<dependency>-->
         <!--    <groupId>commons-fileupload</groupId>-->
@@ -62,18 +56,30 @@
         <!--    <version>1.4</version>-->
         <!--</dependency>-->
 
+        <!--mysql驱动-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
         <!--mybatisplus-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.5.1</version>
+            <version>3.0.5</version>
         </dependency>
-        <!--mybatisx插件代替-->
+        <!--mybatis-plus生成代码插件-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.5.1</version>
+            <version>3.0.5</version>
         </dependency>
+        <!--mybatis-plus生成代码插件模板-->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
+            <version>2.2</version>
+        </dependency>
+
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
