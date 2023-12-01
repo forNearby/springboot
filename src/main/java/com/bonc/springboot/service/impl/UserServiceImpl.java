@@ -3,6 +3,7 @@ package com.bonc.springboot.service.impl;
 import com.bonc.springboot.entity.ResponseResult;
 import com.bonc.springboot.entity.TSysUser;
 import com.bonc.springboot.entity.UpdateUserPWDRO;
+import com.bonc.springboot.mapper.SysUserExtendMapper;
 import com.bonc.springboot.mapper.TSysUserMapper;
 import com.bonc.springboot.service.UserService;
 import com.bonc.springboot.utils.CommonUtil;
@@ -29,6 +30,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseResult updateUserInfo(TSysUser user) {
+        //mybatis-plus测试
 
         user.setId(CommonUtil.getUser().getId());
         int i = tSysUserMapper.updateSelective(user);
