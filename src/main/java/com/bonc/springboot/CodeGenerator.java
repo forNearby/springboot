@@ -26,7 +26,6 @@ import java.util.Scanner;
  */
 public class CodeGenerator {
 
-
     public static String scanner(String tip) {
         Scanner scanner = new Scanner(System.in);
         StringBuilder help = new StringBuilder();
@@ -40,10 +39,6 @@ public class CodeGenerator {
         }
         throw new MybatisPlusException("请输入正确的" + tip + "！");
     }
-
-
-
-
 
     public static void main(String[] args) {
         // 代码生成器
@@ -63,12 +58,12 @@ public class CodeGenerator {
         gc.setDateType(DateType.TIME_PACK);//设置时间类型
         mpg.setGlobalConfig(gc);
 
-        // 数据源配置
+        // 数据源配置--pre
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/file_manager?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8");
+        dsc.setUrl("jdbc:mysql://172.20.111.27:3306/chagoi_bar?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("123456");
+        dsc.setUsername("u_run_chagoi_bar");
+        dsc.setPassword("nhytuCesFrCNN2Vx5rdx");
         mpg.setDataSource(dsc);
 
         // 包配置
